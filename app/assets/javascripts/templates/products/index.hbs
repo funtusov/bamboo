@@ -1,0 +1,29 @@
+<div class="meta">
+  <div class="breadcrumbs">
+    {{link-to "Главная" 'products' class='crumb'}} / {{link-to "Каталог" 'products' class='crumb'}} / <a href="" class="crumb active">Все товары</a>
+  </div>
+
+  <div class="search">
+    <input type="text" name="search" placeholder="Что вы ищете?">
+    <img src="/icons/search.png" alt="Найти">
+  </div>
+
+  <div class="filters">
+    <a href="" class="filter">Размер<img src="/icons/arrow.png" class="arrow"></a>
+    <a href="" class="filter">Цвет<img src="/icons/arrow.png" class="arrow"></a>
+  </div>
+
+  <div class="sort">
+    <p>Сортировать по: <a href="">Цене</a><a href="">Популярности</a><a href="">Только со скидкой</a></p>
+  </div>
+</div>
+
+<div class="products">
+  {{#each}}
+    {{#link-to 'product' this class='product'}}
+      <img {{bind-attr src=img}} alt="Блузка шелковая">
+      <h2>{{title}}</h3>
+      <h2>{{price}} руб.</h2>
+    {{/link-to}}
+  {{/each}}
+</div>

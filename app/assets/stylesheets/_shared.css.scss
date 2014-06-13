@@ -1,0 +1,63 @@
+$baseFont: 'proxima-nova', sans-serif;
+$headerFont: 'futura-pt';
+
+$baseColor: #4d4d4d;
+$textColorLight: #b0afaf;
+$accentColor: #5797ee;   
+$buttonColor: #fff;
+$redColor: #98212e;
+$borderColor: #cfcfcf;
+$blackColor: #000;
+$whiteColor: #fff;
+
+$gridUnit: 40px;
+
+
+@mixin small-font {
+  font-family: $baseFont;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-transform: none;
+}
+
+@mixin sale-font {
+  font-family: $baseFont;
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+@mixin body-font {
+  font-family: $baseFont;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-transform: none;
+}
+
+@mixin large-font {
+  font-family: $baseFont;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: none;
+}
+
+@mixin logo-font {
+  font-family: $baseFont;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@mixin price-font {
+  font-family: $baseFont;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: none;
+}
+
+@mixin h1-font {
+  font-family: $headerFont;
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-transform: none;
+}

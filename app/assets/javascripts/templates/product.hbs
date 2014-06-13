@@ -1,0 +1,42 @@
+<div class="meta">
+  <div class="breadcrumbs">
+    {{link-to "Главная" 'products' class='crumb'}} / {{link-to "Каталог" 'products' class='crumbs'}} / {{ title }}
+  </div>
+</div>
+
+<div class="product-open">
+  <div class="main-photo">
+    <img {{bind-attr src=img}} alt="{{ title }}">
+  </div>
+    
+    <div class="thumbs">
+      <!-- <img src="products/16.jpg" class="thumb" alt="{{ title }}">
+      <img src="products/12.jpg" class="thumb" alt="{{ title }}"> -->
+    </div> 
+ 
+
+  <div class="about">
+    <div class="close">x</div>
+    <h1>{{ title }}</h1>
+    <div>{{{ description }}}</div>
+
+    <div class="attributes">
+      <div class="attribute"><span class="name">Цвет:</span><span class="value">{{ color }}</span></div>
+      <div class="attribute"><span class="name">Состав:</span><span class="value">{{ fabric }}</span></div>
+      <div class="attribute"><span class="name">Производство:</span><span class="value">{{ made_in }}</span></div>
+      <div class="attribute">
+        <span class="name">Размер:</span>
+        <a href="" class="size">40</a>
+        <a href="" class="size">42</a>
+        <a href="" class="size">44</a>
+        <a href="" class="size">46</a>
+        <a href="" class="size">48</a>
+      </div>
+    </div>
+
+    <div class="add_to_cart">
+      <div class="price">{{ price }} <span class="currency">руб.</span></div>
+      <input type="submit" name="button" class="button" value="Добавить в корзину">
+    </div>
+  </div>
+</div>
