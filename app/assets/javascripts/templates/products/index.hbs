@@ -1,6 +1,6 @@
 <div class="meta">
   <div class="breadcrumbs">
-    {{link-to "Главная" 'products' class='crumb'}} / {{link-to "Каталог" 'products' class='crumb'}} / <a href="" class="crumb active">Все товары</a>
+    {{link-to "Каталог" 'products' class='crumb'}}
   </div>
 
   <div class="search">
@@ -14,7 +14,13 @@
   </div>
 
   <div class="sort">
-    <p>Сортировать по: <a href="">Цене</a><a href="">Популярности</a><a href="">Только со скидкой</a></p>
+    <p>Сортировать по: 
+      {{#link-to 'products' (query-params sortBy="id")}}Популярности{{/link-to}}
+      {{#link-to 'products' (query-params sortBy="price")}}Цене{{/link-to}}
+      {{#link-to 'products' (query-params sortBy="title")}}Названию{{/link-to}}
+      <!-- <a href="">Популярности</a>
+      <a href="">Только со скидкой</a> -->
+    </p>
   </div>
 </div>
 

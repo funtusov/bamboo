@@ -1,6 +1,7 @@
 <div class="meta">
   <div class="breadcrumbs">
-    {{link-to "Главная" 'products' class='crumb'}} / {{link-to "Каталог" 'products' class='crumbs'}} / {{ title }}
+    {{link-to "Каталог" 'products' class='crumbs'}} / 
+    {{link-to title 'product' this class='crumbs'}}
   </div>
 </div>
 
@@ -10,8 +11,10 @@
   </div>
     
     <div class="thumbs">
-      <!-- <img src="products/16.jpg" class="thumb" alt="{{ title }}">
-      <img src="products/12.jpg" class="thumb" alt="{{ title }}"> -->
+      <!-- 
+        <img src="products/16.jpg" class="thumb" alt="{{ title }}">
+        <img src="products/12.jpg" class="thumb" alt="{{ title }}">
+      -->
     </div> 
  
 
