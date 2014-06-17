@@ -48,6 +48,7 @@ Shop.Router.reopen
 Shop.Router.map ->
   @resource 'products', ->
   @resource 'product', path: '/products/:product_id'
+  @resource 'cart'
 
 Shop.ProductController = Ember.ObjectController.extend
   actions:

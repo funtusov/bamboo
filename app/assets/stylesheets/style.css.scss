@@ -431,4 +431,137 @@ body {
   }
 }
 
+.my_cart {
+  padding: 0 10%;
+  overflow: hidden;
+
+  h2 {
+    @include h1-font;
+    margin-top: 0;
+  }
+
+  h4 {
+    @include body-font;
+  }
+
+  .cart_items {
+    width: 760px;
+    overflow: hidden;
+    float: left;
+    margin: 0 $gridUnit/4 2*$gridUnit 0;
+
+    .cart_item {
+      width: 9*$gridUnit;
+      float: left;
+      border: 1px solid $borderColor;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box; 
+      position: relative;
+      margin-bottom: $gridUnit/2;
+
+      &:nth-child(2n+1) {
+        margin-right: $gridUnit/2;
+      }
+
+      .image {
+        display: block;
+        width: 4*$gridUnit;
+        float: left;
+
+        img {
+          width: 100%;
+          display: block;
+        }
+      }
+
+      .description {
+        width: 198px;
+        float: left;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box; 
+        padding-left: $gridUnit/2;
+
+        .delete {
+        text-decoration: none;
+        color: $textColorLight;
+        position: absolute;
+        top: $gridUnit/8;
+        right: $gridUnit/4;
+        @include large-font;
+
+          &:hover {
+            color: $accentColor;
+          }
+        }
+
+        .amount {
+          position: absolute;
+          bottom: $gridUnit/2;
+
+          input, span, div {
+            float: left;
+          } 
+
+          input {
+            width: $gridUnit/2;
+            height: $gridUnit/2;
+            text-align: right;
+            padding: 0 $gridUnit/8;
+          }
+
+          .multiple {
+            margin: 3px $gridUnit/8 0;
+            color: $textColorLight;
+          }
+
+          .price {
+            margin-top: 3px;
+            color: $textColorLight;
+          }
+        }
+      }
+    }
+  }
+
+  .total {
+    width: 5*$gridUnit;
+    float: left;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid $borderColor;
+
+    h4, h2 {
+      text-align: center;
+    }
+
+    h4 {
+      color: $textColorLight;
+    }
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    input[type="submit"] {
+      border: 0;
+      width: 100%;
+      height: $gridUnit;
+      color: $whiteColor;
+      background-color: $redColor;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $blackColor;
+      }
+    }
+
+    .currency {
+      @include body-font;
+    }
+  }
+}
+
   
