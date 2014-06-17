@@ -1,26 +1,26 @@
 <div class="meta">
   <div class="breadcrumbs">
     {{link-to "Каталог" 'products' class='crumbs'}} / 
-    {{link-to title 'product' this class='crumbs'}}
+    {{link-to name 'product' this class='crumbs'}}
   </div>
 </div>
 
 <div class="product-open">
   <div class="main-photo">
-    <img {{bind-attr src=img}} alt="{{ title }}">
+    <img {{bind-attr src=img}} alt="{{ name }}">
   </div>
     
     <div class="thumbs">
       <!-- 
-        <img src="products/16.jpg" class="thumb" alt="{{ title }}">
-        <img src="products/12.jpg" class="thumb" alt="{{ title }}">
+        <img src="products/16.jpg" class="thumb" alt="{{ name }}">
+        <img src="products/12.jpg" class="thumb" alt="{{ name }}">
       -->
     </div> 
  
 
   <div class="about">
     <div class="close">x</div>
-    <h1>{{ title }}</h1>
+    <h1>{{ name }}</h1>
     <div>{{{ description }}}</div>
 
     <div class="attributes">
@@ -39,7 +39,7 @@
 
     <div class="add_to_cart">
       <div class="price">{{ price }} <span class="currency">руб.</span></div>
-      <input type="submit" name="button" class="button" value="Добавить в корзину">
+      <button class="button" {{action 'add_to_cart' this}}>Добавить в корзину</button>
     </div>
   </div>
 </div>

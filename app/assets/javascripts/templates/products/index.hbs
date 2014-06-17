@@ -17,7 +17,7 @@
     <p>Сортировать по: 
       {{#link-to 'products' (query-params sortBy="id")}}Популярности{{/link-to}}
       {{#link-to 'products' (query-params sortBy="price")}}Цене{{/link-to}}
-      {{#link-to 'products' (query-params sortBy="title")}}Названию{{/link-to}}
+      {{#link-to 'products' (query-params sortBy="name")}}Названию{{/link-to}}
       <!-- <a href="">Популярности</a>
       <a href="">Только со скидкой</a> -->
     </p>
@@ -28,7 +28,7 @@
   {{#each}}
     {{#link-to 'product' this class='product'}}
       <img {{bind-attr src=img}} alt="Блузка шелковая">
-      <h2>{{title}}</h3>
+      <h2>{{name}}</h3>
       <h2>{{price}} руб.</h2>
     {{/link-to}}
   {{/each}}

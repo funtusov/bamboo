@@ -394,7 +394,7 @@ body {
       }
     }
 
-    input[type="submit"] {
+    .button {
       position: absolute;
       right: 0;
       bottom: 0;
@@ -405,6 +405,7 @@ body {
       width: 6*$gridUnit;
       height: $gridUnit;
       cursor: pointer;
+      outline: none;
 
       &:hover {
         background-color: $blackColor;
