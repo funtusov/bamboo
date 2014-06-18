@@ -492,7 +492,7 @@ body {
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box; 
-        padding-left: $gridUnit/2;
+        padding: 0 $gridUnit/2;
 
         .delete {
         text-decoration: none;
@@ -507,31 +507,39 @@ body {
           }
         }
 
-        .amount {
+        .info {
           position: absolute;
           bottom: $gridUnit/2;
 
-          input, span, div {
-            float: left;
-          } 
-
-          input {
-            width: 30px;
-            height: $gridUnit/2;
-            text-align: right;
-            padding: 0 $gridUnit/8;
-            border: 1px solid $borderColor;
+          .size {
             @include body-font;
+            color: $textColorLight;
+            margin-bottom: 1em;
           }
 
-          .multiple {
-            margin: 3px $gridUnit/8 0;
-            color: $textColorLight;
-          }
+          .amount {
+            input, span, div {
+              float: left;
+            } 
 
-          .price {
-            margin-top: 3px;
-            color: $textColorLight;
+            input {
+              width: 30px;
+              height: $gridUnit/2;
+              text-align: right;
+              padding: 0 $gridUnit/8;
+              border: 1px solid $borderColor;
+              @include body-font;
+            }
+
+            .multiple {
+              margin: 3px $gridUnit/8 0;
+              color: $textColorLight;
+            }
+
+            .price {
+              margin-top: 3px;
+              color: $textColorLight;
+            }
           }
         }
       }
