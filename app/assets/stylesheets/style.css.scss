@@ -582,14 +582,14 @@ body {
       @include h1-font;
       line-height: 1.2em;
     }
-
-    a.back  {
+    
+    a.back {
       @include large-font;
       color: $accentColor;
-    }
 
-    a.back:hover {
-      color: $baseColor;
+      &:hover {
+        color: $baseColor;
+      }
     }
   }
 
