@@ -5,7 +5,7 @@ body {
   color: $baseColor;
 }
 
-.header, .menu, .meta, .products, .product-open, .footer {
+.header, .menu, .meta, .products, .product-open, .footer, .page {
   width: 993px;
   overflow: hidden;
   margin: $gridUnit/2 auto;
@@ -567,6 +567,40 @@ body {
 
     .currency {
       @include body-font;
+    }
+  }
+}
+
+.page {
+
+  .text {
+    width: 60%;
+    float: left;
+    margin-top: $gridUnit;
+
+    h1 {
+      @include h1-font;
+      line-height: 1.2em;
+    }
+
+    a.back  {
+      @include large-font;
+      color: $accentColor;
+    }
+
+    a.back:hover {
+      color: $baseColor;
+    }
+  }
+
+  .illustration {
+    width: 40%;
+    float: left;
+
+    img {
+      display: block;
+      width: 100%;
+      padding: $gridUnit 0;
     }
   }
 }

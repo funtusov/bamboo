@@ -51,6 +51,7 @@ Shop.Router.map ->
   @resource 'products', ->
   @resource 'product', path: '/products/:product_id'
   @resource 'cart'
+  @resource '404', path: '*path'
 
 Shop.ProductController = Ember.ObjectController.extend
   actions:
@@ -95,12 +96,3 @@ Ember.Handlebars.helper 'money', (value, options) ->
   parts = value.toString().split(".")
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ")
   parts.join "."
-
-  # escaped = Handlebars.Utils.escapeExpression(value)
-  # escaped.replace(/(\d)(?=(\d{3})+$)/g, '$1 ')
-  # return new Handlebars.SafeString(escaped)
-
-# Ember.Handlebars.helper('money', function(value, options) {
-#   var escaped = Handlebars.Utils.escapeExpression(value);
-#   return new Ember.Handlebars.SafeString('<span class="highlight">' + escaped + '</span>');
-# });
