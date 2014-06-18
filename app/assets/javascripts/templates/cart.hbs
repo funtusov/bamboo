@@ -1,4 +1,4 @@
-{{#if asd}}
+{{#if isFull}}
   <div class="meta">
     <div class="breadcrumbs">
       {{link-to "Каталог" 'products' class='crumbs'}} / 
@@ -9,78 +9,27 @@
   <div class="my_cart"> 
     <h2>Мои покупки</h2> 
     <div class="cart_items">
-      <div class="cart_item">
-        <a href="" class="image">
-          <img src="/assets/images/6.jpg" alt="Блузка шелковая">
-        </a>
-        <div class="description">
-          <h4>Блузка шелковая</h4>
-          <a href="" class="delete">
-            ×
+      {{#each line_item in line_items}}
+        <div class="cart_item">
+          <a href="" class="image">
+            <img src="/assets/images/6.jpg" {{ bind-attr alt="line_item.product.name" }}>
           </a>
-          <div class="amount">
-            <input type="text" placeholder="1">
-            <span class="multiple">×</span>
-            <div class="price">6150 руб.</div>
+          <div class="description">
+            <h4 class="name">{{ line_item.product.name }}</h4>
+            <a href="" class="delete">×</a>
+            <div class="amount">
+              <input type="text" placeholder="0" {{ bind-attr value='line_item.count' }}>
+              <span class="multiple">×</span>
+              <div class="price">{{ money line_item.product.price }} руб.</div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="cart_item">
-        <a href="" class="image">
-          <img src="/assets/images/6.jpg" alt="Блузка шелковая">
-        </a>
-        <div class="description">
-          <h4>Блузка шелковая</h4>
-          <a href="" class="delete">
-            ×
-          </a>
-          <div class="amount">
-            <input type="text" placeholder="1">
-            <span class="multiple">×</span>
-            <div class="price">6150 руб.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart_item">
-        <a href="" class="image">
-          <img src="/assets/images/6.jpg" alt="Блузка шелковая">
-        </a>
-        <div class="description">
-          <h4>Блузка шелковая</h4>
-          <a href="" class="delete">
-            ×
-          </a>
-          <div class="amount">
-            <input type="text" placeholder="1">
-            <span class="multiple">×</span>
-            <div class="price">6150 руб.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart_item">
-        <a href="" class="image">
-          <img src="/assets/images/6.jpg" alt="Блузка шелковая">
-        </a>
-        <div class="description">
-          <h4>Блузка шелковая</h4>
-          <a href="" class="delete">
-            ×
-          </a>
-          <div class="amount">
-            <input type="text" placeholder="1">
-            <span class="multiple">×</span>
-            <div class="price">6150 руб.</div>
-          </div>
-        </div>
-      </div>
+      {{/each}}
     </div>
 
     <div class="total">
       <h4>Общая сумма заказа</h4>
-      <h2>24600 <span class="currency">руб.</span></h2>
+      <h2>{{ money subtotal }} <span class="currency">руб.</span></h2>
       <h4>+ стоимость доставки</h4>
       <input type="submit" value="Оформить">
     </div>

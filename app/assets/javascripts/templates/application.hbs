@@ -15,10 +15,10 @@
     <a href=""><img src="/icons/instagram.png" alt="Все самое интересное в Instagram"></a>
   </div>
 
-  <a class="cart" {{bind-attr class="isFull"}}>
+  {{#link-to 'cart' classNameBindings=":cart isFull"}}
     <div><img src="/icons/cart.png" alt="Количество товаров в корзине"><span class="cart_quantity">{{ products_count }}</span></div>
     <div><img src="/icons/ruble.png" alt="Стоимость покупки" class="ruble"><span>{{ money subtotal }}</span></div>
-  </a>
+  {{/link-to}}
 </div>
 
 <div class="nav">

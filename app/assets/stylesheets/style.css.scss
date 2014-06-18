@@ -467,6 +467,10 @@ body {
       position: relative;
       margin-bottom: $gridUnit/2;
 
+      .name {
+        @include large-font;
+      }
+
       &:nth-child(2n+1) {
         margin-right: $gridUnit/2;
       }
@@ -512,10 +516,12 @@ body {
           } 
 
           input {
-            width: $gridUnit/2;
+            width: 30px;
             height: $gridUnit/2;
             text-align: right;
             padding: 0 $gridUnit/8;
+            border: 1px solid $borderColor;
+            @include body-font;
           }
 
           .multiple {
