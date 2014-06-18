@@ -15,9 +15,9 @@
     <a href=""><img src="/icons/instagram.png" alt="Все самое интересное в Instagram"></a>
   </div>
 
-  <a class="cart">
-    <div><img src="/icons/cart.png" alt="Количество товаров в корзине"><span class="cart_quantity">0</span></div>
-    <div><img src="/icons/ruble.png" alt="Стоимость покупки" class="ruble"><span>0.00</span></div>
+  <a class="cart" {{bind-attr class="isFull"}}>
+    <div><img src="/icons/cart.png" alt="Количество товаров в корзине"><span class="cart_quantity">{{ products_count }}</span></div>
+    <div><img src="/icons/ruble.png" alt="Стоимость покупки" class="ruble"><span>{{ money subtotal }}</span></div>
   </a>
 </div>
 

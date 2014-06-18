@@ -82,6 +82,13 @@ body {
       border: 1px solid $accentColor;
     }
 
+    &.is-full {
+      // color: $accentColor;
+      border-color: $accentColor;
+      background-color: rgba(87, 151, 238, 0.03);
+      // color: #666;
+    }
+
     div {
       overflow: hidden;
       float: left;

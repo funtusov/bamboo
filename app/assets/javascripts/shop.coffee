@@ -22,18 +22,20 @@ Shop.Cart = DS.Model.extend
   line_items: DS.hasMany('line_items')
 
   products_count: ( ->
-    sum = 0
-    @get('line_items').forEach (line_item) ->
-      sum += line_item.get('count')
-    sum
-  ).property("line_items.@each")
+    @get('line_items').reduce (t, li) ->
+      t + li.get('count')
+    , 0
+  ).property("line_items.@each.count")
 
-  subtotal: ( -> 
-    sum = 0
-    @get('line_items').forEach (line_item) ->
-      sum += line_item.get('total')
-    sum
-  ).property("line_items.@each")
+  subtotal: ( ->
+    @get('line_items').reduce (t, li) ->
+      t + li.get('total')
+    , 0
+  ).property("line_items.@each.total")
+
+  isFull: ( ->
+    @get("products_count") > 0
+  ).property("products_count")
 
 Shop.LineItem = DS.Model.extend
   product: DS.belongsTo('product')
@@ -81,6 +83,24 @@ Shop.ProductsIndexController = Ember.ArrayController.extend
     @get('sortBy') == 'price'
   ).property('sortBy')
 
+Shop.ApplicationRoute = Ember.Route.extend
+  model: ->
+    @store.find('cart', 1)
+
 Shop.ProductsIndexRoute = Ember.Route.extend
   model: ->
     @store.find('product')
+
+Ember.Handlebars.helper 'money', (value, options) ->
+  parts = value.toString().split(".")
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+  parts.join "."
+
+  # escaped = Handlebars.Utils.escapeExpression(value)
+  # escaped.replace(/(\d)(?=(\d{3})+$)/g, '$1 ')
+  # return new Handlebars.SafeString(escaped)
+
+# Ember.Handlebars.helper('money', function(value, options) {
+#   var escaped = Handlebars.Utils.escapeExpression(value);
+#   return new Ember.Handlebars.SafeString('<span class="highlight">' + escaped + '</span>');
+# });
