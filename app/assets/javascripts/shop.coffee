@@ -51,6 +51,8 @@ Shop.Router.map ->
   @resource 'products', ->
   @resource 'product', path: '/products/:product_id'
   @resource 'cart'
+  @resource 'delivery'
+  @resource 'payment'
   @resource '404', path: '*path'
 
 Shop.ProductController = Ember.ObjectController.extend
