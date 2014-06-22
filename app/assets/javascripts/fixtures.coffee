@@ -1,5 +1,7 @@
 Shop.Cart.FIXTURES = [{id: 1}]
 
+Shop.LineItem.FIXTURES = []
+
 Shop.Product.FIXTURES = [{
     id: 1
     name: 'Рубашка'

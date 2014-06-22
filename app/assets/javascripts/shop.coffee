@@ -4,7 +4,17 @@
   LOG_VIEW_LOOKUPS: true
 )
 
-Shop.ApplicationAdapter = DS.FixtureAdapter.extend()
+Shop.ApplicationAdapter = DS.FixtureAdapter.extend
+  queryFixtures: (fixtures, query, type) ->
+    fixtures.filter (item) ->
+      for prop of query
+        if item[prop] != query[prop]
+          return false
+      return true
+    # return fixtures
+
+# Shop.Store = DS.Store.extend
+#   adapter: Shop.ApplicationAdapter
 
 Shop.Cart = DS.Model.extend
 
@@ -16,7 +26,7 @@ Shop.Product = DS.Model.extend
   fabric: DS.attr()
   made_in: DS.attr()
   price: DS.attr('number')
-  line_items: DS.hasMany('lineItem')
+  line_items: DS.hasMany('line_item')
 
 Shop.Cart = DS.Model.extend
   line_items: DS.hasMany('line_items')
@@ -63,13 +73,19 @@ Shop.Router.map ->
 Shop.ProductController = Ember.ObjectController.extend
   actions:
     add_to_cart: (product) ->
-      cart = @store.find('cart', 1)
-      line_item = @store.createRecord 'line_item',
-        product: product
-        count: 1
+      @store.find('cart', 1).then (cart) =>
+        @store.find('line_item', {product: product}).then (line_item) =>
+          window.line_item = line_item
+          if line_item.get('cart')
+            console.log 'increment'
+            line_item.incrementProperty 'count'
+          else
+            console.log 'create'
+            window.line_item2 = @store.createRecord 'line_item',
+              product: product
+              cart: cart 
+              count: 1
 
-      @store.find('cart', 1).then (cart) ->
-        line_item.set('cart', cart)
 
 Shop.ProductsIndexController = Ember.ArrayController.extend
   queryParams: ['sortBy']
