@@ -665,4 +665,116 @@ body {
   }
 }
 
-  
+
+.check_out {
+  width: 100%;
+  background-color: $accentColor;
+  overflow: hidden;
+
+  .info {
+    width: 660px;
+    margin: $gridUnit auto 3*$gridUnit;
+    overflow: hidden;
+
+    h1, p {
+      text-align: center;
+      color: $whiteColor;
+      margin-bottom: $gridUnit/1.5;
+    }
+
+    h1 {
+      @include h1-font;
+    }
+
+    p, a {
+      @include button-font;
+    }
+
+    .introduction {
+      width: 320px;
+      float: left;
+
+      p {
+        padding: 0 $gridUnit/2;
+      }
+
+      a {
+        display: block;
+        width: 7*$gridUnit;
+        margin: $gridUnit/4 auto;
+        text-decoration: none;
+        color: $whiteColor;
+        background-color: rgba(255, 255, 255, .2);
+        border: 2px solid $whiteColor;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        padding: $gridUnit/4 0 $gridUnit/4 1.5*$gridUnit;
+
+        &:hover {
+          background-color: $whiteColor;
+          color: $accentColor;
+        }
+
+        img {
+          display: block;
+          width: 20px;
+          float: left;
+          margin: 1px $gridUnit/5 0 0;
+        }
+      }
+    }
+
+    .social {
+      margin-left: $gridUnit/2;
+    }
+  }
+}
+
+.form {
+  width: 300px;
+  margin: 0 auto;
+
+  input {
+    width: 100%;
+    border: 2px solid $whiteColor;
+    background-color: rgba(255, 255, 255, .2);
+    color: $whiteColor;
+    @include button-font;
+    padding: $gridUnit/4 $gridUnit/2;
+    margin-bottom: $gridUnit/4;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+    &::-webkit-input-placeholder {
+      color: $whiteColor;
+    }
+
+    &::-moz-placeholder {
+      color: $whiteColor;
+    }
+
+    &::-ms-input-placeholder {
+      color: $whiteColor;
+    }
+  }
+
+  input[type="submit"] {
+    color: $accentColor;
+    height: 47px;
+    background-color: $whiteColor;
+    cursor: pointer;
+    border: none;
+    transition: all .1s linear;
+    @include submit-font;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:hover {
+      color: #333;
+      // background-color: rgba(255, 255, 255, .95);
+    }
+  }
+}
