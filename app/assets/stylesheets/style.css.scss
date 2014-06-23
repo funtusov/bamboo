@@ -735,7 +735,7 @@ body {
   width: 300px;
   margin: 0 auto;
 
-  input {
+  input, textarea {
     width: 100%;
     border: 2px solid $whiteColor;
     background-color: rgba(255, 255, 255, .2);
@@ -775,6 +775,43 @@ body {
     &:hover {
       color: #333;
       // background-color: rgba(255, 255, 255, .95);
+    }
+  }
+}
+
+.address {
+  .form {
+    width: 620px;
+
+    .column, textarea {
+      width: 300px;
+      float: left;
+    }
+
+    .column {
+      margin-right: $gridUnit/2;
+    }
+
+    textarea {
+      height: 226px;
+    }
+
+    .house, .flat {
+      float: left;
+    }
+
+    .house {
+      width: 80px;
+      margin-right: $gridUnit/4;
+    }
+
+    .flat {
+      width: 210px;
+    }
+
+    input[type="submit"] {
+      width: 300px;
+      margin: 0 auto;
     }
   }
 }

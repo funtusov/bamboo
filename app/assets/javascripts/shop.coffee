@@ -68,6 +68,7 @@ Shop.Router.map ->
   @resource 'login'
   @resource 'registration'
   @resource 'confirmation'
+  @resource 'address'
 
   @resource '404', path: '*path'
 
