@@ -67,8 +67,10 @@ Shop.Router.map ->
   @resource 'introduction'
   @resource 'login'
   @resource 'registration'
+  @resource 'confirmation'
 
   @resource '404', path: '*path'
+
 
 Shop.ProductController = Ember.ObjectController.extend
   actions:
