@@ -17,5 +17,9 @@
 //= require ember-data
 //= require_tree ./templates
 //= require shop
+//= require models
+//= require router
+//= require controllers
+//= require helpers
 //= require fixtures
 //= require_tree .

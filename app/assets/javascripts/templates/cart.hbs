@@ -11,16 +11,16 @@
     <div class="cart_items">
       {{#each line_item in line_items}}
         <div class="cart_item">
-          <a href="" class="image">
+          {{#link-to 'product' line_item.product class='image'}}
             <img {{ bind-attr src="line_item.product.img" alt="line_item.product.name" }}>
-          </a>
+          {{/link-to}}
           <div class="description">
             <h4 class="name">{{ line_item.product.name }}</h4>
-            <a href="" class="delete">×</a>
+            <button {{action 'removeLineItem' line_item}} class="delete">×</button>
             <div class="info">
               <div class="size">Размер: 42</div>
               <div class="amount">
-                <input type="text" placeholder="0" {{ bind-attr value='line_item.count' }}>
+                {{input type="number" value=line_item.count placeholder="0"}}
                 <span class="multiple">×</span>
                 <div class="price">{{ money line_item.product.price }} руб.</div>
               </div>
