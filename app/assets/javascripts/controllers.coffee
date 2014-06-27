@@ -36,3 +36,6 @@ Shop.CartController = Ember.ObjectController.extend
     removeLineItem: (line_item) ->
       line_item.deleteRecord()
       line_item.save()
+
+    checkout: ->
+      @transitionToRoute 'introduction'

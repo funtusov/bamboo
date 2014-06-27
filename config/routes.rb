@@ -4,6 +4,10 @@ Bamboo::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
 
+  namespace :api do
+    resources :products
+  end
+
   get "*route", to: "application#index"
   root 'application#index'
 

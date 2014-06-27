@@ -75,18 +75,18 @@ body {
     margin-top: $gridUnit/8;
     border: 1px solid $borderColor;
     color: $textColorLight;
-    @include large-font;
+    @include button-font;
     cursor: pointer;
+    box-sizing: border-box;
+    height: 40px;
 
     &:hover {
       border: 1px solid $accentColor;
     }
 
     &.is-full {
-      // color: $accentColor;
       border-color: $accentColor;
       background-color: rgba(87, 151, 238, 0.03);
-      // color: #666;
     }
 
     div {
@@ -94,16 +94,16 @@ body {
       float: left;
 
       img {
-        margin: $gridUnit/4;
+        margin: 7px 7px 7px 10px;
         float: left;
       }
 
       .ruble {
-        margin-top: 14px;
+        margin-top: 11px;
       }
 
       span {
-        margin: $gridUnit/4;
+        margin: 7px 10px;
         float: left;
       }
 
@@ -115,9 +115,19 @@ body {
   }
 }
 
-.nav {
+.content {
   border-top: 1px solid $borderColor;
   border-bottom: 1px solid $borderColor;
+}
+
+.nav {
+  &.top {
+    border-top: 1px solid $borderColor;    
+  }
+
+  &.bottom {
+    border-bottom: 1px solid $borderColor;    
+  }
   
   a {
     text-decoration: none;
@@ -148,7 +158,6 @@ body {
 
   .breadcrumbs {
     color: $accentColor;
-    margin-top: $gridUnit/4;
 
     a {
       color: $accentColor;
@@ -568,13 +577,14 @@ body {
       margin-bottom: 0;
     }
 
-    input[type="submit"] {
+    .checkout {
       border: 0;
       width: 100%;
       height: $gridUnit;
       color: $whiteColor;
       background-color: $redColor;
       cursor: pointer;
+      outline: none;
 
       &:hover {
         background-color: $blackColor;
