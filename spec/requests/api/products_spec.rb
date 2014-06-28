@@ -27,7 +27,7 @@ describe 'Products API' do
   it 'should get a product' do
     get "/api/products/#{shop.products.first.id}", format: :json
     expect(response).to be_success
-    expect(json['product'].keys).to eq(%w(id name description price)) 
+    expect(json['product'].keys).to eq(%w(id name description price img color fabric made_in)) 
   end
 
   it 'should not get other shop product' do
