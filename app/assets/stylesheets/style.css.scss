@@ -830,3 +830,21 @@ body {
     }
   }
 }
+
+.check_out {
+  .info {
+    .choose_type {
+      width: 100%;
+
+      a {
+        padding: 10px 60px;
+        width: 10*$gridUnit;
+
+        .price {
+          float: right;
+        }
+      }
+    }
+  }
+}
+

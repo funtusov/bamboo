@@ -14,6 +14,9 @@ Shop.Router.map ->
   @resource 'confirmation'
   @resource 'address'
 
+  @resource 'payment_type'
+  @resource 'delivery_type'
+
   @resource '404', path: '*path'
 
 Shop.ApplicationRoute = Ember.Route.extend
