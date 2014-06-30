@@ -701,13 +701,17 @@ body {
       @include h1-font;
     }
 
-    p, a {
+    p {
       @include button-font;
     }
 
     .introduction {
       width: 320px;
       float: left;
+
+      a {
+        @include button-font;
+      }
 
       p {
         padding: 0 $gridUnit/2;
@@ -742,6 +746,66 @@ body {
 
     .social {
       margin-left: $gridUnit/2;
+    }
+
+    .choose_type {
+      width: 100%;
+
+      form, input, a {
+        width: 10*$gridUnit;
+      }
+
+      a {
+        padding: 10px 60px;
+
+        .price {
+          float: right;
+        }
+      }
+    }
+
+    .city {
+      p {
+        &.put_the_name {
+          margin-bottom: $gridUnit/4;
+        }
+
+        a {
+          color: $whiteColor; 
+          margin-right: $gridUnit/4;
+
+          &:hover {
+            opacity: .8;
+          }
+        }
+
+        .main {
+          @include h1-font;
+        }
+
+        .other {
+          @include submit-font;
+        }
+      }
+
+      .form {
+        width: 440px;
+
+        input[type="text"], input[type="submit"] {
+          float: left;
+        }
+
+        input[type="text"] {
+          margin-right: $gridUnit/8;
+          width: 240px;
+          margin-top: 0;
+        }
+
+        input[type="submit"] {
+          margin-left: $gridUnit/8;
+          width: 190px;
+        }
+      }
     }
   }
 }
@@ -781,15 +845,14 @@ body {
     background-color: $whiteColor;
     cursor: pointer;
     border: none;
-    transition: all .1s linear;
     @include submit-font;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
 
     &:hover {
-      color: #333;
-      // background-color: rgba(255, 255, 255, .95);
+      background-color: rgba(255, 255, 255, .2);
+      color: $whiteColor; 
+      border: 2px solid $whiteColor;
+      padding-top: 9px;
     }
   }
 }
@@ -831,20 +894,5 @@ body {
   }
 }
 
-.check_out {
-  .info {
-    .choose_type {
-      width: 100%;
 
-      a {
-        padding: 10px 60px;
-        width: 10*$gridUnit;
-
-        .price {
-          float: right;
-        }
-      }
-    }
-  }
-}
 

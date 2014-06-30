@@ -14,6 +14,7 @@ Shop.Router.map ->
   @resource 'confirmation'
   @resource 'address'
 
+  @resource 'city'
   @resource 'payment_type'
   @resource 'delivery_type'
 
