@@ -5,6 +5,10 @@ FactoryGirl.define do
     domain 'bookshop.com'
   end
 
-  factory :product do
+  factory :product
+  factory :cart
+  factory :user do
+    email 'test@email.com'
+    password '123123123'
   end
 end

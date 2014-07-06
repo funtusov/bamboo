@@ -10,6 +10,7 @@ gem 'rabl'
 gem 'puma'
 gem 'rspec'
 gem 'devise'
+gem 'ember_devise_simple_auth'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

@@ -1,22 +1,8 @@
 require 'spec_helper'
+require 'shared_contexts'
 
 describe 'Products API' do
-  let!(:shop) { create :shop }
-  let!(:another_shop) { create :shop, domain: 'anothershop.com' }
-
-  before :all do
-    host! 'bookshop.com'
-  end
-
-  before :each do
-    10.times do
-      shop.products << FactoryGirl.create(:product)
-    end
-
-    5.times do
-      another_shop.products << FactoryGirl.create(:product)
-    end
-  end
+  include_context "multitenancy"
 
   it 'should get products' do
     get '/api/products', format: :json
@@ -33,5 +19,6 @@ describe 'Products API' do
   it 'should not get other shop product' do
     get "/api/products/#{another_shop.products.first.id}", format: :json
     expect(response.status).to eq(404)
+    expect(response.body).to eq('{"error": "not_found"}')
   end
 end

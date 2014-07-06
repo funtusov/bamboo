@@ -1,0 +1,2 @@
+describe Cart do
+end

@@ -38,3 +38,6 @@ Shop.LineItem = DS.Model.extend
 
 Shop.ProductAdapter = DS.ActiveModelAdapter.extend
   namespace: 'api'
+
+Shop.CartAdapter = DS.ActiveModelAdapter.extend
+  namespace: 'api'
