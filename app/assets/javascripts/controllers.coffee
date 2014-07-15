@@ -39,3 +39,8 @@ Shop.CartController = Ember.ObjectController.extend
 
     checkout: ->
       @transitionToRoute 'introduction'
+
+Shop.RegistrationController = Ember.ObjectController.extend 
+  actions:
+    create: (args) ->
+      console.log args

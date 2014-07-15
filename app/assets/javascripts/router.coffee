@@ -27,3 +27,7 @@ Shop.ApplicationRoute = Ember.Route.extend
 Shop.ProductsIndexRoute = Ember.Route.extend
   model: ->
     @store.find('product')
+
+# Shop.RegistrationRoute = Ember.Route.extend
+#   model: ->
+#     @store.createRecord('user')

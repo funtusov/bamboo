@@ -4,6 +4,7 @@ class Shop
   field :domain
 
   has_many :products
+  has_many :users
 
   class << self
     def current_id=(id)

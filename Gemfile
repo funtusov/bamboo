@@ -3,7 +3,7 @@ ruby '2.1.2'
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.2rc3'
+gem 'rails', '4.1.4'
 gem 'mongoid','~> 4.0.0'
 gem 'gon'
 gem 'rabl'

@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'shared_contexts'
 
-describe 'Registrations' do
+describe 'Registrations API' do
   include_context "multitenancy"
 
   context 'with complete data' do

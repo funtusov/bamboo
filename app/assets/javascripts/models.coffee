@@ -36,6 +36,11 @@ Shop.LineItem = DS.Model.extend
   total: Ember.computed 'product', 'count', ->
     @get('product').get('price') * @get('count')
 
+Shop.User = DS.Model.extend
+  first_name: DS.attr 'string'
+  last_name: DS.attr 'string'
+  email: DS.attr 'string'
+
 Shop.ProductAdapter = DS.ActiveModelAdapter.extend
   namespace: 'api'
 

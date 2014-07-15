@@ -3,12 +3,12 @@
 	  <h1>Регистрация</h1>
 	  <p>Многие люди не любят регистрироваться на сайтах, но поверьте, сделав это однажды в нашем магазине, вы сэкономите много времени, получите доступ в личный кабинет и сможете отслеживать статус и историю ваших заказов.</p>
 	  <form class="form">
-	    <input type="text" placeholder="Имя">
-	    <input type="text" placeholder="Фамилия">
-	    <input type="text" placeholder="Email">
-	    <input type="text" placeholder="Пароль">
-	    <input type="text" placeholder="Подтверждение пароля">
-	    <input type="submit" value="Зарегистрироваться">
+	  	{{input type="text" value=view.first_name placeholder="Имя"}}
+	  	{{input type="text" value=view.last_name placeholder="Фамилия"}}
+	  	{{input type="text" value=view.email placeholder="Email"}}
+	  	{{input type="text" value=view.password placeholder="Пароль"}}
+	  	{{input type="text" value=view.password_confirmation placeholder="Подтверждение пароля"}}
+	    <button {{action "create" view}}>Зарегистрироваться</button>
 	  </form>
   </div>
 </div>

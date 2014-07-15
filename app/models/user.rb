@@ -28,4 +28,16 @@ class User
   # field :confirmed_at,         type: Time
   # field :confirmation_sent_at, type: Time
   # field :unconfirmed_email,    type: String # Only if using reconfirmable
+
+  belongs_to :shop
+
+  scope :visitors, -> {}
+
+  def email_required?
+    false
+  end
+
+  def password_required?
+    false
+  end
 end
