@@ -4,34 +4,28 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   around_filter :scope_current_shop
-  before_filter :create_current_user, only: [:index]
 
   helper_method :current_shop
+
+  alias_method :devise_current_user, :current_user
 
   def current_shop
     Shop.find_by domain: request.domain
   end
 
-  alias_method :devise_current_user, :current_user
-
   def current_user
     @current_user ||= if devise_current_user
       devise_current_user
     else
-      user = current_shop.users.create!
-      sign_in(:user, user)
-      user
+      sign_in(:user, current_shop.users.create!)
     end
   end
 
   def index
+    gon.push(current_user_id: current_user.id)
   end
 
-private
-
-  def create_current_user
-    current_user
-  end
+  private
 
   def scope_current_shop
     Shop.current_id = current_shop.id

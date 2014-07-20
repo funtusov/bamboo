@@ -22,12 +22,18 @@ Shop.Router.map ->
 
 Shop.ApplicationRoute = Ember.Route.extend
   model: ->
-    @store.find('cart', 1)
+    @store.find('user', gon.current_user_id).then (user) =>
+      user.get('cart')
 
 Shop.ProductsIndexRoute = Ember.Route.extend
   model: ->
     @store.find('product')
 
-# Shop.RegistrationRoute = Ember.Route.extend
-#   model: ->
-#     @store.createRecord('user')
+Shop.CartRoute = Ember.Route.extend
+  model: ->
+    @store.find('user', gon.current_user_id).then (user) =>
+      user.get('cart')
+
+Shop.RegistrationRoute = Ember.Route.extend
+  model: ->
+    @store.find('user', gon.current_user_id)

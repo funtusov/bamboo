@@ -6,7 +6,7 @@ FactoryGirl.define do
   end
 
   factory :product
-  factory :cart
+  factory :order
   factory :user do
     email 'test@email.com'
     password '123123123'

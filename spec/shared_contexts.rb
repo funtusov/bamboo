@@ -1,20 +1,30 @@
-RSpec.shared_context "multitenancy" do
+RSpec.shared_context 'multitenancy' do
   let!(:shop) { create :shop }
   let!(:another_shop) { create :shop, domain: 'anothershop.com' }
 
   before :each do
-    begin 
-      host! 'bookshop.com'
-    rescue
-      @request.host = 'bookshop.com'
+    domain = 'bookshop.com'
+
+    if @request 
+      @request.host = domain
+    else
+      host! domain
     end
 
-    10.times do
-      shop.products << FactoryGirl.create(:product)
-    end
+    create_list(:product, 10, shop: shop)
+    create_list(:product, 5, shop: another_shop)
+  end
+end
 
-    5.times do
-      another_shop.products << FactoryGirl.create(:product)
+RSpec.shared_context 'visitor created' do
+  let!(:current_user) { create(:user, shop: shop) }
+  let!(:another_user) { create(:user, shop: shop) }
+
+  before :each do
+    if @request
+      sign_in current_user
+    else
+      login_as current_user, scope: :user
     end
   end
 end

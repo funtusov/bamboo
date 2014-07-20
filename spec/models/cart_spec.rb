@@ -1,2 +1,0 @@
-describe Cart do
-end

@@ -1,5 +1,3 @@
-Shop.Cart = DS.Model.extend
-
 Shop.Product = DS.Model.extend
   name: DS.attr()
   img: DS.attr()
@@ -12,6 +10,7 @@ Shop.Product = DS.Model.extend
 
 Shop.Cart = DS.Model.extend
   line_items: DS.hasMany('line_items')
+  user: DS.belongsTo('user')
 
   products_count: ( ->
     @get('line_items').reduce (t, li) ->
@@ -37,12 +36,14 @@ Shop.LineItem = DS.Model.extend
     @get('product').get('price') * @get('count')
 
 Shop.User = DS.Model.extend
-  first_name: DS.attr 'string'
-  last_name: DS.attr 'string'
   email: DS.attr 'string'
+  cart: DS.belongsTo('cart')
 
 Shop.ProductAdapter = DS.ActiveModelAdapter.extend
   namespace: 'api'
 
 Shop.CartAdapter = DS.ActiveModelAdapter.extend
+  namespace: 'api'
+
+Shop.UserAdapter = DS.ActiveModelAdapter.extend
   namespace: 'api'

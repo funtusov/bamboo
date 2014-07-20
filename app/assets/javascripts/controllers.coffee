@@ -1,14 +1,14 @@
 Shop.ProductController = Ember.ObjectController.extend
   actions:
     add_to_cart: (product) ->
-      @store.find('cart', 1).then (cart) =>
+      @store.find('user', gon.current_user_id).then (user) =>
         line_item = product.get('line_item')
         if line_item?
           line_item.incrementProperty('count')
         else
           @store.createRecord 'line_item',
             product: product
-            cart: cart 
+            cart: user.get('cart') 
             count: 1
 
 Shop.ProductsIndexController = Ember.ArrayController.extend

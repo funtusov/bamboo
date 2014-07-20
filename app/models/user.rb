@@ -30,10 +30,19 @@ class User
   # field :unconfirmed_email,    type: String # Only if using reconfirmable
 
   belongs_to :shop
+  has_many :orders
 
   scope :visitors, -> {}
 
+  def cart
+    orders.first_or_create! # TODO
+  end
+
   def email_required?
+    false
+  end
+
+  def email_changed?
     false
   end
 

@@ -1,7 +1,10 @@
 class Api::CartsController < ApiController
   def show
-    # @cart = Cart.new#current_user.carts.first_or_create
-    # respond_with @cart
-    respond_with '{"cart": {"id": "1", "line_items": []}}'
+    @cart = current_user.cart
+    if @cart.id.to_s == params[:id]
+      respond_with @cart, root: 'cart'
+    else
+      render json: {}, status: 404
+    end
   end
 end

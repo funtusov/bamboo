@@ -4,6 +4,7 @@ class Product
   default_scope -> { where(shop_id: Shop.current_id) }
 
   belongs_to :shop
+  has_many :line_items
 
   field :name
   field :description

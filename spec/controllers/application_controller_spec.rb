@@ -17,9 +17,7 @@ describe ApplicationController do
   end
 
   context 'when the visitor is returning' do
-    before :each do
-      get :index
-    end
+    include_context 'visitor created'
 
     it 'should not create a new visitor user instance' do
       expect {
