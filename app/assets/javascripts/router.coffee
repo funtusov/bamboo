@@ -37,3 +37,8 @@ Shop.CartRoute = Ember.Route.extend
 Shop.RegistrationRoute = Ember.Route.extend
   model: ->
     @store.find('user', gon.current_user_id)
+
+Shop.CityRoute = Ember.Route.extend
+  model: ->
+    @store.find('user', gon.current_user_id).then (user) =>
+      user.get('cart')

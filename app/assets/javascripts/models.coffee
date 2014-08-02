@@ -36,8 +36,13 @@ Shop.LineItem = DS.Model.extend
     @get('product').get('price') * @get('count')
 
 Shop.User = DS.Model.extend
+  signed_in: DS.attr 'boolean'
   email: DS.attr 'string'
-  cart: DS.belongsTo('cart')
+  first_name: DS.attr 'string'
+  last_name: DS.attr 'string'
+  cart: DS.belongsTo 'cart'
+  password: DS.attr()
+  password_confirmation: DS.attr()
 
 Shop.ProductAdapter = DS.ActiveModelAdapter.extend
   namespace: 'api'

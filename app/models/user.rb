@@ -5,8 +5,19 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  ROLES = {
+    user: 'user',
+    visitor: 'visitor'
+  }
+
+  field :first_name
+  field :last_name
+
+  field :role, default: ROLES.fetch(:visitor)
+
   ## Database authenticatable
-  field :email,              type: String, default: ""
+  field :email
+  field :phone
   field :encrypted_password, type: String, default: ""
 
   ## Recoverable
@@ -23,16 +34,22 @@ class User
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
 
-  ## Confirmable
-  # field :confirmation_token,   type: String
-  # field :confirmed_at,         type: Time
-  # field :confirmation_sent_at, type: Time
-  # field :unconfirmed_email,    type: String # Only if using reconfirmable
-
   belongs_to :shop
   has_many :orders
 
+  after_update :register, if: :visitor?
+
   scope :visitors, -> {}
+
+  def visitor?
+    role == ROLES.fetch(:visitor)
+  end
+
+  def user?
+    role == ROLES.fetch(:user)
+  end
+
+  alias_method :signed_in, :user?
 
   def cart
     orders.first_or_create! # TODO
@@ -48,5 +65,12 @@ class User
 
   def password_required?
     false
+  end
+
+  private
+
+  def register
+    set(role: ROLES.fetch(:user)) if [:password, :password_confirmation, :email].all? {|prop| send(prop).present?}
+    clean_up_passwords
   end
 end
