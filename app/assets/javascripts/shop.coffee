@@ -4,7 +4,5 @@
   LOG_VIEW_LOOKUPS: true
 )
 
-Shop.ApplicationAdapter = DS.FixtureAdapter.extend
-  queryFixtures: (fixtures, query, type) ->
-    key = Ember.keys(query)[0]
-    return fixtures.filterBy(key, query[key])
+Shop.ApplicationAdapter = DS.ActiveModelAdapter.extend
+  namespace: 'api'

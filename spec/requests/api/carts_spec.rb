@@ -13,10 +13,6 @@ describe 'Carts API' do
   it 'should get current visitor cart' do
     get "/api/carts/#{current_user.cart.id}", format: :json
     expect(response).to be_success
-    expect(json['cart'].keys).to eq(%w(id line_items))
+    expect(json['cart'].keys).to eq(%w(id line_item_ids))
   end
-
-  it 'should create line items'
-  it 'should modify line items'
-  it 'should remove line items'
 end

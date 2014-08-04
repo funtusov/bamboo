@@ -5,7 +5,7 @@ Bamboo::Application.routes.draw do
     resources :users, only: [:show, :update]
     resources :products, only: [:index, :show]
     resources :carts, only: [:show]
-    resources :line_items, only: [:create]
+    resources :line_items, only: [:show, :create, :update, :destroy]
   end
 
   get "*route", to: "application#index"

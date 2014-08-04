@@ -3,7 +3,6 @@ class Api::ProductsController < ApiController
 
   def index
     @products = Product.all
-    Rails.logger.warn @products.count
     respond_with @products
   end
 

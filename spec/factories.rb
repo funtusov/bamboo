@@ -11,4 +11,6 @@ FactoryGirl.define do
     email 'test@email.com'
     password '123123123'
   end
+
+  factory :line_item
 end

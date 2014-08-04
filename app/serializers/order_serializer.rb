@@ -1,7 +1,6 @@
 class OrderSerializer < ActiveModel::Serializer
-  attributes :id, :line_items
+  embed :ids, include: true
+  attributes :id
 
-  def line_items
-    []
-  end
+  has_many :line_items
 end

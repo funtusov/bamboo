@@ -6,15 +6,17 @@ Shop.ApplicationController = Ember.ObjectController.extend
 Shop.ProductController = Ember.ObjectController.extend
   actions:
     add_to_cart: (product) ->
-      @store.find('user', gon.current_user_id).then (user) =>
+      @session.user().then (user) =>
         line_item = product.get('line_item')
         if line_item?
-          line_item.incrementProperty('count')
+          line_item.incrementProperty('quantity')
+          line_item.save()
         else
-          @store.createRecord 'line_item',
+          line_item = @store.createRecord 'line_item',
             product: product
             cart: user.get('cart') 
-            count: 1
+            quantity: 1
+          line_item.save()
 
 Shop.ProductsIndexController = Ember.ArrayController.extend
   queryParams: ['sortBy']
@@ -37,27 +39,23 @@ Shop.ProductsIndexController = Ember.ArrayController.extend
   ).property('sortBy')
 
 Shop.CartController = Ember.ObjectController.extend
+  persistQuantity: ( ->
+    @get('line_items').forEach (li) -> li.save() if li.get('isDirty')
+  ).observes('line_items.@each.quantity')
+
   actions:
     removeLineItem: (line_item) ->
       line_item.deleteRecord()
       line_item.save()
 
     checkout: ->
-      @store.find('user', gon.current_user_id).then (user) =>
-        if user.get('signed_in')
-          @transitionToRoute 'city'
+      @session.user().then (user) =>
+        @transitionToRoute if user.get('signed_in')
+          'city'
         else
-          @transitionToRoute 'introduction'
+          'introduction'
 
 Shop.RegistrationController = Ember.ObjectController.extend 
   actions:
-    create: (user) ->
+    update: (user) ->
       user.save()
-      # @store.find('user', gon.current_user_id).then (user) =>
-      #   user.setProperties
-      #     first_name: args.first_name
-      #     last_name: args.last_name
-      #     email: args.email
-      #     password: args.password
-      #     password_confirmation: args.password_confirmation
-      #   user.save()

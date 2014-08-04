@@ -20,6 +20,8 @@ RSpec.shared_context 'visitor created' do
   let!(:current_user) { create(:user, shop: shop) }
   let!(:another_user) { create(:user, shop: shop) }
 
+  let(:cart) { create :order, user: current_user }
+
   before :each do
     if @request
       sign_in current_user

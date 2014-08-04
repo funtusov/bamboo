@@ -14,9 +14,9 @@ Shop.Cart = DS.Model.extend
 
   products_count: ( ->
     @get('line_items').reduce (t, li) ->
-      t + li.get('count')
+      t + li.get('quantity')
     , 0
-  ).property("line_items.@each.count")
+  ).property("line_items.@each.quantity")
 
   subtotal: ( ->
     @get('line_items').reduce (t, li) ->
@@ -31,9 +31,9 @@ Shop.Cart = DS.Model.extend
 Shop.LineItem = DS.Model.extend
   product: DS.belongsTo('product')
   cart: DS.belongsTo('cart')
-  count: DS.attr('number')
-  total: Ember.computed 'product', 'count', ->
-    @get('product').get('price') * @get('count')
+  quantity: DS.attr('number')
+  total: Ember.computed 'product', 'quantity', ->
+    @get('product').get('price') * @get('quantity')
 
 Shop.User = DS.Model.extend
   signed_in: DS.attr 'boolean'
@@ -43,12 +43,3 @@ Shop.User = DS.Model.extend
   cart: DS.belongsTo 'cart'
   password: DS.attr()
   password_confirmation: DS.attr()
-
-Shop.ProductAdapter = DS.ActiveModelAdapter.extend
-  namespace: 'api'
-
-Shop.CartAdapter = DS.ActiveModelAdapter.extend
-  namespace: 'api'
-
-Shop.UserAdapter = DS.ActiveModelAdapter.extend
-  namespace: 'api'

@@ -20,6 +20,6 @@
 //= require models
 //= require router
 //= require controllers
+//= require session
 //= require helpers
-//= require fixtures
 //= require_tree .
