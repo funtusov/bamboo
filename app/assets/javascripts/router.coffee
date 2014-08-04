@@ -20,17 +20,17 @@ Shop.Router.map ->
 
   @resource '404', path: '*path'
 
-Shop.ApplicationRoute = Ember.Route.extend
+Shop.ApplicationRoute = Em.Route.extend
   model: -> @session.cart()
 
-Shop.ProductsIndexRoute = Ember.Route.extend
+Shop.ProductsIndexRoute = Em.Route.extend
   model: -> @store.find('product')
 
-Shop.CartRoute = Ember.Route.extend
+Shop.CartRoute = Em.Route.extend
   model: -> @session.cart()
 
-Shop.RegistrationRoute = Ember.Route.extend
+Shop.RegistrationRoute = Em.Route.extend
   model: -> @session.user()
 
-Shop.CityRoute = Ember.Route.extend
+Shop.CityRoute = Em.Route.extend
   model: -> @session.cart()

@@ -1,4 +1,4 @@
-Shop.Session = Ember.Object.extend
+Shop.Session = Em.Object.extend
   user: ->
     @container.lookup('store:main').find('user', gon.current_user_id)
 
@@ -6,8 +6,8 @@ Shop.Session = Ember.Object.extend
     @user().then (user) ->
       user.get('cart')
 
-Ember.onLoad 'Ember.Application', (Application) ->
-  Ember.Application.initializer
+Em.onLoad 'Ember.Application', (Application) ->
+  Application.initializer
     name: 'session'
     initialize: (container, application) -> 
       application.register('session:main', Shop.Session)

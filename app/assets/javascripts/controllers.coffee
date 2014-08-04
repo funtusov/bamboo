@@ -1,9 +1,9 @@
-Shop.ApplicationController = Ember.ObjectController.extend
+Shop.ApplicationController = Em.ObjectController.extend
   currentUser: ( ->
     @store.find('user', gon.current_user_id)
   ).property('gon.current_user_id')
 
-Shop.ProductController = Ember.ObjectController.extend
+Shop.ProductController = Em.ObjectController.extend
   actions:
     add_to_cart: (product) ->
       @session.user().then (user) =>
@@ -18,7 +18,7 @@ Shop.ProductController = Ember.ObjectController.extend
             quantity: 1
           line_item.save()
 
-Shop.ProductsIndexController = Ember.ArrayController.extend
+Shop.ProductsIndexController = Em.ArrayController.extend
   queryParams: ['sortBy']
   sortBy: 'id'
 
@@ -38,11 +38,7 @@ Shop.ProductsIndexController = Ember.ArrayController.extend
     @get('sortBy') == 'price'
   ).property('sortBy')
 
-Shop.CartController = Ember.ObjectController.extend
-  persistQuantity: ( ->
-    @get('line_items').forEach (li) -> li.save() if li.get('isDirty')
-  ).observes('line_items.@each.quantity')
-
+Shop.CartController = Em.ObjectController.extend
   actions:
     removeLineItem: (line_item) ->
       line_item.deleteRecord()
@@ -55,7 +51,7 @@ Shop.CartController = Ember.ObjectController.extend
         else
           'introduction'
 
-Shop.RegistrationController = Ember.ObjectController.extend 
+Shop.RegistrationController = Em.ObjectController.extend 
   actions:
     update: (user) ->
       user.save()

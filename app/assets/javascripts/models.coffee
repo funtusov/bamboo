@@ -32,8 +32,12 @@ Shop.LineItem = DS.Model.extend
   product: DS.belongsTo('product')
   cart: DS.belongsTo('cart')
   quantity: DS.attr('number')
-  total: Ember.computed 'product', 'quantity', ->
+  total: Em.computed 'product', 'quantity', ->
     @get('product').get('price') * @get('quantity')
+
+  persistQuantity: ( ->
+    Em.run.debounce(this, @save, 500) if @get('isDirty')  
+  ).observes('quantity')
 
 Shop.User = DS.Model.extend
   signed_in: DS.attr 'boolean'
