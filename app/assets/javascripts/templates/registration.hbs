@@ -1,14 +1,14 @@
 <div class="check_out">
   <div class="info">
 	  <h1>Регистрация</h1>
-	  <p>Мы знаем, что очень многие люди не любят регистрироваться в магазинах. Причины разные. Но поверьте, сделав это один раз в нашем магазине, Вы сэкономите себе уйму времени в будущем. И это удобно, ведь это позволит Вам всегда знать, что с Вашим заказом.</p>
+	  <p>Мы знаем, что очень многие люди не любят регистрироваться в магазинах. Причины разные. Но, поверьте, сделав это один раз в нашем магазине, вы сэкономите свое время в будущем.</p>
 	  <form class="form">
 	  	{{input type="text" value=first_name placeholder="Имя"}}
 	  	{{input type="text" value=last_name placeholder="Фамилия"}}
 	  	{{input type="text" value=email placeholder="Email"}}
-	  	{{input type="text" value=password placeholder="Пароль"}}
-	  	{{input type="text" value=password_confirmation placeholder="Подтверждение пароля"}}
+	  	{{input type="password" value=password placeholder="Пароль"}}
+	  	{{input type="password" value=password_confirmation placeholder="Подтверждение пароля"}}
 	    <button {{action "update" this}}>Зарегистрироваться</button>
 	  </form>
   </div>
-</div>
+</div>   

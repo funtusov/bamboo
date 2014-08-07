@@ -1,5 +1,5 @@
 body {
-  padding: 0;
+  padding: 0;  
   margin: 0;
   @include body-font;
   color: $baseColor;
@@ -683,8 +683,9 @@ body {
 
 .check_out {
   width: 100%;
-  background-color: $accentColor;
   overflow: hidden;
+  border-top: 1px solid #cfcfcf;
+  border-bottom: 1px solid #cfcfcf; 
 
   .info {
     width: 660px;
@@ -693,7 +694,6 @@ body {
 
     h1, p {
       text-align: center;
-      color: $whiteColor;
       margin-bottom: $gridUnit/1.5;
     }
 
@@ -722,17 +722,17 @@ body {
         width: 7*$gridUnit;
         margin: $gridUnit/4 auto;
         text-decoration: none;
-        color: $whiteColor;
-        background-color: rgba(255, 255, 255, .2);
-        border: 2px solid $whiteColor;
+        color: $baseColor;
+        border: 1px solid $borderColor;
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         padding: $gridUnit/4 0 $gridUnit/4 1.5*$gridUnit;
 
         &:hover {
-          background-color: $whiteColor;
-          color: $accentColor;
+          background-color: $accentColor;
+          color: $whiteColor;
+          border: 1px solid $accentColor;
         }
 
         img {
@@ -771,11 +771,11 @@ body {
         }
 
         a {
-          color: $whiteColor; 
+          color: $baseColor; 
           margin-right: $gridUnit/4;
 
           &:hover {
-            opacity: .8;
+            color: $accentColor; 
           }
         }
 
@@ -791,7 +791,7 @@ body {
       .form {
         width: 440px;
 
-        input[type="text"], input[type="submit"] {
+        input[type="text"], button {
           float: left;
         }
 
@@ -799,9 +799,10 @@ body {
           margin-right: $gridUnit/8;
           width: 240px;
           margin-top: 0;
+          padding: 14px 20px;
         }
 
-        input[type="submit"] {
+        button {
           margin-left: $gridUnit/8;
           width: 190px;
         }
@@ -816,10 +817,9 @@ body {
 
   input, textarea, button {
     width: 100%;
-    border: 2px solid $whiteColor;
-    background-color: rgba(255, 255, 255, .2);
-    color: $whiteColor;
-    @include button-font;
+    border: 1px solid $borderColor;
+    color: $baseColor;
+    @include body-font;
     padding: $gridUnit/4 $gridUnit/2;
     margin-bottom: $gridUnit/4;
     box-sizing: border-box;
@@ -827,32 +827,34 @@ body {
     -moz-box-sizing: border-box;
 
     &::-webkit-input-placeholder {
-      color: $whiteColor;
+      color: $textColorLight;
     }
 
     &::-moz-placeholder {
-      color: $whiteColor;
+      color: $textColorLight;
     }
 
     &::-ms-input-placeholder {
-      color: $whiteColor;
+      color: $textColorLight;
     }
   }
 
   button {
-    color: $accentColor;
+    color: $whiteColor;
     height: 47px;
-    background-color: $whiteColor;
+    background-color: $accentColor;
     cursor: pointer;
     border: none;
+    opacity: .8;
     @include submit-font;
-    appearance: none;
+    -webkit-appearance: none;
 
     &:hover {
-      background-color: rgba(255, 255, 255, .2);
+      background-color: none;
       color: $whiteColor; 
-      border: 2px solid $whiteColor;
+      border: 2px solid $accentColor;
       padding-top: 9px;
+      opacity: 1;
     }
   }
 }
@@ -871,7 +873,7 @@ body {
     }
 
     textarea {
-      height: 226px;
+      height: 194px;
     }
 
     .house, .flat {
@@ -887,7 +889,7 @@ body {
       width: 210px;
     }
 
-    input[type="submit"] {
+    button {
       width: 300px;
       margin: 0 auto;
     }
