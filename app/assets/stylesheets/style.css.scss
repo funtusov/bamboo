@@ -32,7 +32,7 @@ body {
   }
 
   .contact {
-    width: 250px;
+    width: 200px;
     float: left;
     text-align: right;
 
@@ -53,7 +53,7 @@ body {
   .social {
     width: 150px;
     float: left;
-    margin-top: $gridUnit/8;
+    margin-top: 24px;
 
     a {
       float: right;
@@ -70,46 +70,88 @@ body {
     }
   }
 
-  .cart {
-    float: right;
-    margin-top: $gridUnit/8;
-    border: 1px solid $borderColor;
-    color: $textColorLight;
-    @include button-font;
-    cursor: pointer;
-    box-sizing: border-box;
-    height: 40px;
+  .personal {
+    width: 343px;
+    float: left;
 
-    &:hover {
-      border: 1px solid $accentColor;
-    }
-
-    &.is-full {
-      border-color: $accentColor;
-      background-color: rgba(87, 151, 238, 0.03);
-    }
-
-    div {
-      overflow: hidden;
+    .auth {
+      width: 100%;
       float: left;
+      text-align: right;
 
-      img {
-        margin: 7px 7px 7px 10px;
+      .enter {
+        display: none;
+        color: $accentColor;
+
+        &:hover {
+          color: $baseColor;
+        }
+      }
+
+      .user {
+        margin: 0;
+        color: $textColorLight;
+
+        .profile {
+          color: $accentColor;
+          text-decoration: none;
+
+          &:hover {
+            color: $baseColor;
+          }
+        }
+
+        .logout {
+          color: $textColorLight;
+
+          &:hover {
+            color: $baseColor;
+          }
+        }
+      }
+    }
+
+    .cart {
+      float: right;
+      margin-top: 7px;
+      border: 1px solid $borderColor;
+      color: $textColorLight;
+      @include button-font;
+      cursor: pointer;
+      box-sizing: border-box;
+      height: 40px;
+
+      &:hover {
+        border: 1px solid $accentColor;
+      }
+
+      &.is-full {
+        border-color: $accentColor;
+        background-color: rgba(87, 151, 238, 0.03);
+      }
+
+      div {
+        overflow: hidden;
         float: left;
-      }
 
-      .ruble {
-        margin-top: 11px;
-      }
+        img {
+          margin: 7px 7px 7px 10px;
+          float: left;
+        }
 
-      span {
-        margin: 7px 10px;
-        float: left;
-      }
+        .ruble {
+          margin-top: 11px;
+        }
 
-      .cart_quantity {
-        padding-right: $gridUnit/2;
-        border-right: 1px solid $borderColor;
+        span {
+          margin: 7px 10px;
+          float: left;
+        }
+
+        .cart_quantity {
+          padding-right: $gridUnit/2;
+          border-right: 1px solid $borderColor;
+        }
       }
     }
   }
@@ -799,7 +841,7 @@ body {
           margin-right: $gridUnit/8;
           width: 240px;
           margin-top: 0;
-          padding: 14px 20px;
+          padding: 14px 20px;  
         }
 
         button {

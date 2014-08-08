@@ -15,10 +15,17 @@
     <a href=""><img src="/icons/instagram.png" alt="Все самое интересное в Instagram"></a>
   </div>
 
-  {{#link-to 'cart' classNameBindings=":cart isFull"}}
-    <div><img src="/icons/cart.png" alt="Количество товаров в корзине"><span class="cart_quantity">{{ products_count }}</span></div>
-    <div><img src="/icons/ruble.png" alt="Стоимость покупки" class="ruble"><span>{{ money subtotal }}</span></div>
-  {{/link-to}}
+  <div class="personal">
+    <div class="auth">
+      <a href="" class="enter">Войти в магазин</a>
+      <p class="user">Здравствуйте, <a href="" class="profile">Константин</a>! / <a href="" class="logout">Выйти</a>
+    </div>
+
+    {{#link-to 'cart' classNameBindings=":cart isFull"}}
+      <div><img src="/icons/cart.png" alt="Количество товаров в корзине"><span class="cart_quantity">{{ products_count }}</span></div>
+      <div><img src="/icons/ruble.png" alt="Стоимость покупки" class="ruble"><span>{{ money subtotal }}</span></div>
+    {{/link-to}}
+  </div>
 </div>
 
 <div class="nav top">
